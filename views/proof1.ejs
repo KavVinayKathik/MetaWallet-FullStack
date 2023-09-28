@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ID Proofs</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+        }
+        h1 {
+            background-color: #3498db;
+            color: #fff;
+            padding: 20px;
+            text-align: center;
+        }
+        .container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-around;
+        }
+        .item {
+            background-color: #f2f2f2;
+            border: 1px solid #ddd;
+            margin: 10px;
+            padding: 20px;
+            border-radius: 5px;
+            width: calc(33.33% - 20px); /* Distribute items in 3 columns */
+            box-sizing: border-box;
+        }
+    </style>
+</head>
+<body>
+    <h1>Your ID Proofs: Keep Them Safe!!!</h1>
+    <div class="container">
+        <% data.forEach((item) => { %>
+            <div class="item">
+                <strong>Proof Type:</strong> <%= item.ProofType %><br>
+                <strong>Applicant Name:</strong> <%= item.ApplicantName %><br>
+                <strong>ID Proof Number:</strong> <%= item.ProofID %><br>
+                <!-- Add more properties as needed -->
+            </div>
+        <% }); %>
+    </div>
+</body>
+</html>

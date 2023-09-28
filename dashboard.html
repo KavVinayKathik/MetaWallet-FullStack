@@ -1,0 +1,281 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard - Password Manager</title>
+    <style>
+        /* Reset some default styles */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        /* Global styles */
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f5f5f5;
+            margin: 0;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            min-height: 100vh;
+        }
+
+        /* Header styles */
+        header {
+            background-color: #3498db;
+            color: #fff;
+            padding: 20px;
+            text-align: left;
+            border-radius: 0 0 10px 10px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            width: 100%;
+        }
+
+        header h1 {
+            font-size: 36px;
+            font-weight: bold;
+            padding: 0 20px;
+        }
+
+        /* User profile styles */
+        .user-profile {
+            display: flex;
+            align-items: center;
+        }
+
+        .user-profile img {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            margin-right: 10px;
+            border: 2px solid #3498db;
+        }
+
+       
+
+        
+
+        /* Section styles */
+        section {
+            text-align: left;
+            margin-top: 20px;
+            font-size: 18px;
+            padding: 20px;
+        }
+
+        h2 {
+            font-size: 24px;
+            font-weight: bold;
+            margin: 0 0 20px 0;
+        }
+
+        ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        li {
+            margin-bottom: 10px;
+        }
+
+        li span {
+            font-weight: bold;
+            color: #3498db;
+        }
+
+        /* Link button styles */
+        a.button {
+            display: inline-block;
+            margin-top: 20px;
+            padding: 10px 20px;
+            background-color: #1a5176;
+            color: #56cfd5;
+            text-decoration: none;
+            font-weight: bold;
+            border-radius: 5px;
+            transition: background-color 0.3s;
+        }
+
+        a.button:hover {
+            background-color: #1b98ec;
+        }
+
+        /* Dropdown styles */
+        .dropdown {
+            position: relative;
+            display: inline-block;
+            font-size: 60px;
+        }
+
+        .dropdown-content {
+            padding: 5px;
+            display: none;
+            position: absolute;
+            background-color: #83b7eb;
+            min-width: 160px;
+            box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+            z-index: 1;
+            border-radius: 30px;
+        }
+
+        .dropdown .button {
+            font-size: 25px;
+            border-radius: 20px;
+        }
+
+        .dropdown-content button:hover {
+            font-size: 30px;
+        }
+
+        .dropdown:hover .dropdown-content {
+            display: block;
+        }
+
+        .dropdown:hover .button {
+            background-color: #0da1c6;
+        }
+
+        /* Styles for the form container */
+        .container button {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            padding: 20px;
+            margin: 40px;
+            font-size: 50px;
+            width: fit-content;
+            border-radius: 20px;
+            background-color: #2980b9;
+        }
+
+        .container button:hover {
+            font-size: 70px;
+        }
+
+        .container {
+            padding: 20px;
+            margin: 20px;
+        }
+
+        .right {
+            animation-name: slide;
+            animation-duration: 6s;
+            animation-iteration-count: 1;
+            animation-fill-mode: forwards;
+        }
+
+        .left {
+            animation-name: slide1;
+            animation-duration: 6s;
+            animation-iteration-count: 1;
+            animation-fill-mode: forwards;
+        }
+
+        @keyframes slide {
+            0% {
+                display: none;
+                margin-right: -200px;
+                opacity: 0;
+            }
+            100% {
+                margin-right: 50;
+                opacity: 1;
+            }
+        }
+
+        @keyframes slide1 {
+            0% {
+                display: none;
+                margin-left: -200px;
+                opacity: 0;
+            }
+            100% {
+                margin-left: 50;
+                opacity: 1;
+            }
+        }
+
+        a {
+            color: #f7fbfc;
+        }
+
+        #user-info {
+    display: flex;
+    flex-direction: column;
+    animation-name: user;
+    animation-duration: 5s;
+    animation-iteration-count: infinite;
+    background-size: 200% 100%; /* Adjust the size as needed */
+    animation-direction:alternate ;
+}
+
+@keyframes user {
+    0% {
+        background-image: linear-gradient(to right, rgb(19, 157, 211), rgb(228, 225, 228), rgb(127, 139, 144));
+        background-position: 0% 50%;
+    }
+    100% {
+        background-image: linear-gradient(to right, rgb(219, 230, 229), rgb(207, 178, 207), rgb(63, 161, 206));
+        background-position: 100% 50%;
+    }
+}
+
+#user-info:hover {
+    animation-timing-function: cubic-bezier(0.68, -0.55, 0.27, 1.55); /* Adjust the cubic-bezier values for desired smoothness */
+}
+
+
+        span{
+            background-color: #1a5176;
+            border-radius: 20px;
+            color: #f5f5f5;
+            
+        }
+        
+    </style>
+    <script src='https://kit.fontawesome.com/a076d05399.js' crossorigin='anonymous'></script>
+</head>
+<body>
+    <header>
+        <h1 style="font-size: 50px;">Meta Wallet</h1>
+        <div id="user-info"  style="border: 4px solid gray;border-radius: 20px;padding: 20px;">
+         
+            <p style="font-size: 30px;padding: 5px;color: rgb(40, 20, 48);font-family: 'Times New Roman', Times, serif;">Name: <span id="full-name"></span></p>
+            <p style="font-size: 30px;padding: 10px;color:rgb(19, 51, 66);font-family: 'Times New Roman', Times, serif;">Email: <span id="user-email"></span></p>
+        </div>
+    </header>
+    <div class="dropdown" style="position: fixed;right:1150px;top:200px;">
+        <button class="button" style="font-size: 30px;border-radius: 20px;padding: 6px;">Add Info</button>
+        <div class="dropdown-content">
+            <button id="add-password-button" class="button"><a href="http://localhost:4000/sample"> Add Passwords</a></button>
+            <button id="add-credit-card-button" class="button"><a href="http://localhost:4000/card"> Add Credit Card Details</a></button>
+            <button id="add-proof-id-button" class="button"><a href="http://localhost:4000/proof">Add Proof ID</a></button>
+            <button id="add-notes-button" class="button"><a href="http://localhost:4000/blank">Add Notes</a></button>
+        </div>
+    </div>
+    <a href="http://localhost:4000/Login" style="font-size: 30px;background-color: #1a5176;color: #f5f5f5;margin: 10px;border-radius: 10px;position: relative;left: 550px;">Logout</a>
+    <div class="container">
+        <button class="right"><a href="http://localhost:4000/index">View Passwords</a></button>
+        <button class="left"><a href="http://localhost:4000/proof1">View ID-Proofs</a></button>
+        <button class="right"><a href="http://localhost:4000/card1">View Credit/DebitCards</a></button>
+        <button class="left"><a href="http://localhost:4000/notes">View Personal Notes</a></button>
+    </div>
+    <script>
+        // JavaScript code to extract and display query parameters
+        const urlParams = new URLSearchParams(window.location.search);
+        const fullName = urlParams.get("fullName");
+        const email = urlParams.get("email");
+
+        // Update the HTML elements with the user's name and email
+        document.getElementById("full-name").textContent = fullName;
+        document.getElementById("user-email").textContent = email;
+
+    </script>
+</body>
+</html>
